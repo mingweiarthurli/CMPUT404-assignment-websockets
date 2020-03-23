@@ -83,7 +83,6 @@ function renderFrame() {
     clearFrame();
     for (var key in world) {
         var entity = world[key];
-        // console.log(entity);
         drawCircle(context,prepEntity(entity));
     }
 }
@@ -271,12 +270,9 @@ function wsSetup() {
             var objs = JSON.parse(msg.data);
             for (var key in objs) {
                 world[key] = objs[key];
-                drawNext = true;
-                console.log(world[key]);
             }
+            drawNext = true;
             update();
-            // console.log(drawNext);
-            // console.log(world);
         } catch (e) {
             alert("socket on message: " + e);
         }
